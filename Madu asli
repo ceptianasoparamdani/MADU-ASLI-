@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Madu Murni & Sarang Asli</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fffdf5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ffb703, #fb8500);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .badge-free {
+            display: inline-block;
+            background-color: #e63946;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .products-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #f4f4f4;
+        }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: #d4a373;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #fb8500;
+            margin-bottom: 15px;
+        }
+
+        .btn-order {
+            display: block;
+            width: 100%;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-order:hover {
+            background-color: #1eb857;
+        }
+
+        .benefits {
+            margin-top: 40px;
+            background: #fefae0;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .benefits h2 {
+            color: #bc6c25;
+            margin-bottom: 15px;
+        }
+
+        .benefits ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .benefits li {
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🍯 Madu Murni & Sarang Asli</h1>
+        <p>100% Alami, Sehat, Tanpa Bahan Pengawet</p>
+        <div class="badge-free">🚚 PROMO GRATIS ONGKIR!</div>
+    </header>
+
+    <div class="container">
+        <div class="products-grid">
+            
+            <!-- Produk 1: Madu Botol -->
+            <div class="card">
+                <img src="IMG-20261011-WA0003.jpg" alt="Madu Botol" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Madu Murni Botol</h2>
+                    <p class="card-desc">Madu murni cair praktis untuk konsumsi harian, menjaga imun dan stamina keluarga.</p>
+                    <div class="price">Rp 135.000 <span style="font-size: 0.9rem; font-weight: normal; color: #777;">/ botol</span></div>
+                    <!-- Ganti 08123456789 dengan nomor WhatsApp Anda -->
+                    <a href="https://wa.me/628123456789?text=Halo,%20saya%20mau%20pesan%20Madu%20Botol%20Rp%20135rb" class="btn-order">Pesan via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Produk 2: Madu Sarang -->
+            <div class="card">
+                <img src="IMG-20261011-WA0004.jpg" alt="Madu Sarang" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Madu Sarang (Honeycomb)</h2>
+                    <p class="card-desc">Sensasi makan madu utuh langsung dari sarangnya. Kaya nutrisi dan rasa lezat alami.</p>
+                    <div class="price">Rp 160.000 <span style="font-size: 0.9rem; font-weight: normal; color: #777;">/ sarang</span></div>
+                    <!-- Ganti 08123456789 dengan nomor WhatsApp Anda -->
+                    <a href="https://wa.me/628123456789?text=Halo,%20saya%20mau%20pesan%20Madu%20Sarang%20Rp%20160rb" class="btn-order">Pesan via WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="benefits">
+            <h2>Keunggulan Produk Kami</h2>
+            <ul>
+                <li>✅ 100% Asli & Alami</li>
+                <li>✅ Tanpa Campuran Gula</li>
+                <li>✅ Siap Kirim Ke Seluruh Wilayah</li>
+                <li>✅ Gratis Ongkos Kirim</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Madu Murni Asli. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -370,10 +370,159 @@
             <div class="product-card">
                 <span class="card-tag">Praktis Harian</span>
                 <div class="card-img-wrap">
-                    <img src="IMG-20261011-WA0001.jpg" alt="Madu Botol" id="img-botol">
+                    <img src="IMG-20261011-WA0003.jpg" alt="Madu Botol" id="img-botol">
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Madu Murni Botol</h3>
+                    <p class="card-desc">Madu murni cair praktis untuk konsumsi harian keluarga.</p>
+                    <div class="price-tag">Rp 135.000 <span>/ botol</span></div>
+                    <a href="#order-section" class="cta-btn-main" style="text-align:center; display:block; padding:8px; font-size:0.85rem;">Pilih Varian</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="card-tag" style="background:#e63946;">Paling Dicari</span>
+                <div class="card-img-wrap">
+                    <img src="IMG-20261011-WA0004.jpg" alt="Madu Sarang" id="img-sarang">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Madu Sarang (Honeycomb)</h3>
+                    <p class="card-desc">Sensasi makan madu utuh segar langsung dari sarangnya.</p>
+                    <div class="price-tag">Rp 160.000 <span>/ sarang</span></div>
+                    <a href="#order-section" class="cta-btn-main" style="text-align:center; display:block; padding:8px; font-size:0.85rem;">Pilih Varian</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="order-section" class="checkout-box">
+            <div class="sec-header" style="margin-bottom:15px;">
+                <h2>Form Pemesanan Cepat</h2>
+                <p>Atur jumlah pesanan, total dihitung otomatis!</p>
+            </div>
+
+            <div class="calc-item">
+                <div class="calc-info">
+                    <h5>Madu Murni Botol</h5>
+                    <p>Rp 135.000 / botol</p>
+                </div>
+                <div class="counter-controls">
+                    <button class="btn-qty" type="button" onclick="updateQty('botol', -1)">-</button>
+                    <span class="qty-val" id="qty-botol">0</span>
+                    <button class="btn-qty" type="button" onclick="updateQty('botol', 1)">+</button>
+                </div>
+            </div>
+
+            <div class="calc-item">
+                <div class="calc-info">
+                    <h5>Madu Sarang (Honeycomb)</h5>
+                    <p>Rp 160.000 / sarang</p>
+                </div>
+                <div class="counter-controls">
+                    <button class="btn-qty" type="button" onclick="updateQty('sarang', -1)">-</button>
+                    <span class="qty-val" id="qty-sarang">0</span>
+                    <button class="btn-qty" type="button" onclick="updateQty('sarang', 1)">+</button>
+                </div>
+            </div>
+
+            <div class="total-summary">
+                <div>
+                    <h4>Total Pembayaran:</h4>
+                    <span style="font-size:0.7rem; color:#28a745; font-weight:700;">Termasuk Promo Gratis Ongkir</span>
+                </div>
+                <div class="total-price" id="total-price">Rp 0</div>
+            </div>
+
+            <button type="button" onclick="sendOrder()" class="btn-wa-submit">
+                <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang via WhatsApp
+            </button>
+        </div>
+
+    </div>
+
+    <a href="#" onclick="sendOrder(); return false;" class="float-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 Madu Murni Asli - Garansi Kualitas Terbaik.</p>
+    </footer>
+
+    <script>
+        // MASUKKAN NOMOR WA ANDA DI SINI (Ganti 628123456789)
+        const NO_WA = "628123456789";
+
+        let botolQty = 0;
+        let sarangQty = 0;
+
+        const PRICE_BOTOL = 135000;
+        const PRICE_SARANG = 160000;
+
+        const imgBotol = document.getElementById('img-botol');
+        if (imgBotol) {
+            imgBotol.addEventListener('error', function() {
+                this.src = 'https://via.placeholder.com/300x180?text=Madu+Botol';
+            });
+        }
+
+        const imgSarang = document.getElementById('img-sarang');
+        if (imgSarang) {
+            imgSarang.addEventListener('error', function() {
+                this.src = 'https://via.placeholder.com/300x180?text=Madu+Sarang';
+            });
+        }
+
+        function updateQty(itemType, changeVal) {
+            if (itemType === 'botol') {
+                botolQty += changeVal;
+                if (botolQty < 0) botolQty = 0;
+                const elBotol = document.getElementById('qty-botol');
+                if (elBotol) elBotol.innerText = String(botolQty);
+            } else if (itemType === 'sarang') {
+                sarangQty += changeVal;
+                if (sarangQty < 0) sarangQty = 0;
+                const elSarang = document.getElementById('qty-sarang');
+                if (elSarang) elSarang.innerText = String(sarangQty);
+            }
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const total = (botolQty * PRICE_BOTOL) + (sarangQty * PRICE_SARANG);
+            const elTotal = document.getElementById('total-price');
+            if (elTotal) {
+                elTotal.innerText = "Rp " + total.toLocaleString('id-ID');
+            }
+        }
+
+        function sendOrder() {
+            if (botolQty === 0 && sarangQty === 0) {
+                alert("Silakan pilih minimal 1 produk terlebih dahulu.");
+                return;
+            }
+
+            let detailPesan = "Halo, saya ingin memesan Madu Murni:%0A";
+            let total = 0;
+
+            if (botolQty > 0) {
+                detailPesan += `- Madu Botol: ${botolQty} botol (Rp ${(botolQty * PRICE_BOTOL).toLocaleString('id-ID')})%0A`;
+                total += botolQty * PRICE_BOTOL;
+            }
+
+            if (sarangQty > 0) {
+                detailPesan += `- Madu Sarang: ${sarangQty} sarang (Rp ${(sarangQty * PRICE_SARANG).toLocaleString('id-ID')})%0A`;
+                total += sarangQty * PRICE_SARANG;
+            }
+
+            detailPesan += `%0A*Total Harga:* Rp ${total.toLocaleString('id-ID')}%0A`;
+            detailPesan += `*Keterangan:* Promo Gratis Ongkir%0A%0A`;
+            detailPesan += `Mohon info cara pembayarannya. Terima kasih!`;
+
+            window.open(`https://wa.me/${NO_WA}?text=${detailPesan}`, '_blank');
+        }
+    </script>
+</body>
+</html>
+>Madu Murni Botol</h3>
                     <p class="card-desc">Madu murni cair praktis untuk konsumsi harian keluarga.</p>
                     <div class="price-tag">Rp 135.000 <span>/ botol</span></div>
                     <a href="#order-section" class="cta-btn-main" style="text-align:center; display:block; padding:8px; font-size:0.85rem;">Pilih Varian</a>
